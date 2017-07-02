@@ -4,7 +4,7 @@
 #
 # Copyright:: 2017, Christopher Maher, MIT.
 
-#Create standard directories
+# Create standard directories
 %W(
   /Users/#{node['macbase']['user']}/stuffy
   /Users/#{node['macbase']['user']}/stuffy/code
@@ -16,7 +16,7 @@
   end
 end
 
-#Configure sudoers file for homebrew use
+# Configure sudoers file for homebrew use
 directory '/etc/sudoers.d' do
   owner 'root'
   group 'wheel'
@@ -34,7 +34,7 @@ template '/etc/sudoers.d/homebrew_chef' do
             user: node['macbase']['user'])
 end
 
-#Install Cask and Brew packages
+# Install Cask and Brew packages
 include_recipe 'build-essential'
 include_recipe 'homebrew'
 include_recipe 'homebrew::cask'
@@ -51,6 +51,12 @@ include_recipe 'homebrew::cask'
   royal-tsx
   microsoft-office
   bettertouchtool
+  1password
+  firefox
+  postman
+  slack
+  spotify
+  vmware-horizon-client
 ).each do |installer|
   homebrew_cask installer
 end
@@ -63,7 +69,17 @@ end
   zsh-syntax-highlighting
   zsh-autosuggestions
   python3
+  rust
+  golang
+  exercism
 ).each do |installer|
   package installer
 end
 
+# Styles and preferences
+
+git 'get dracula iterm2' do
+  destination "/Users/#{node['macbase']['user']}/stuffy/code"
+  repository 'https://github.com/dracula/iterm.git'
+  action :sync
+end
