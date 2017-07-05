@@ -4,6 +4,10 @@ DEPENDENCIES
     metadata: true
 
 GRAPH
+  ark (3.1.0)
+    build-essential (>= 0.0.0)
+    seven_zip (>= 0.0.0)
+    windows (>= 0.0.0)
   build-essential (8.0.3)
     mingw (>= 1.1)
     seven_zip (>= 0.0.0)
@@ -11,10 +15,17 @@ GRAPH
   macbase (0.1.0)
     build-essential (>= 0.0.0)
     homebrew (>= 0.0.0)
+    oh_my_zsh (>= 0.0.0)
   mingw (2.0.1)
     seven_zip (>= 0.0.0)
+  oh_my_zsh (0.1.5)
+    ark (>= 0.0.0)
+    user (>= 0.0.0)
+    zsh (>= 0.0.0)
   ohai (5.1.0)
   seven_zip (2.0.2)
     windows (>= 1.2.2)
+  user (0.7.0)
   windows (3.1.1)
     ohai (>= 4.0.0)
+  zsh (1.0.3)

@@ -83,3 +83,6 @@ git 'get dracula iterm2' do
   repository 'https://github.com/dracula/iterm.git'
   action :sync
 end
+
+# Install Oh-My-Zsh!
+include_recipe 'oh_my_zsh'
