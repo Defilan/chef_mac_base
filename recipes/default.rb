@@ -85,4 +85,22 @@ git 'get dracula iterm2' do
 end
 
 # Install Oh-My-Zsh!
-include_recipe 'oh_my_zsh'
+
+user node['macbase']['user'] do
+  action :modify
+  shell '/bin/zsh'
+end
+
+git "/Users/#{node['macbase']['user']}/.oh-my-zsh" do
+  repository 'git://github.com/robbyrussell/oh-my-zsh.git'
+  user node['macbase']['user']
+  reference 'master'
+  action :sync
+end
+
+template "/Users/#{node['macbase']['user']}/.zshrc" do
+  source 'default/zshrc.erb'
+  variables(
+    user: node['macbase']['user']
+  )
+end
