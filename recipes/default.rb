@@ -13,6 +13,7 @@
 ).each do |dirs|
   directory dirs do
     recursive true
+    owner node['macbase']['user']
   end
 end
 
@@ -92,7 +93,7 @@ user node['macbase']['user'] do
 end
 
 git "/Users/#{node['macbase']['user']}/.oh-my-zsh" do
-  repository 'git://github.com/robbyrussell/oh-my-zsh.git'
+  repository 'https://github.com/robbyrussell/oh-my-zsh.git'
   user node['macbase']['user']
   reference 'master'
   action :sync
