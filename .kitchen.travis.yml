@@ -1,0 +1,6 @@
+---
+driver:
+  name: localhost
+
+platforms:
+  - name: macosx

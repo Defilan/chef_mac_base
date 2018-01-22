@@ -1,0 +1,28 @@
+language: objective-c
+
+osx_image: xcode9.2
+
+branches:
+  only:
+    - master
+
+install:
+  - curl -L https://www.chef.io/chef/install.sh | sudo bash -s -- -P chefdk
+  - chef exec bundle install --without=development integration
+
+
+before_script:
+  - cp .kitchen.travis.yml .kitchen.local.yml
+  - eval "$(chef shell-init bash)"
+  - chef --version
+  - cookstyle --version
+  - foodcritic --version
+
+matrix:
+  include:
+    - script:
+      - chef exec delivery local unit
+      - chef exec delivery local syntax
+      - chef exec delivery local lint
+      - chef exec kitchen test
+env: UNIT_AND_LINT=1
