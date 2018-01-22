@@ -1,4 +1,4 @@
-# Fedora Base Cookbook
+# Mac Base Cookbook
 
 This is a Chef cookbook that helps configure Mac based Chef/Ruby developer boxes
 
