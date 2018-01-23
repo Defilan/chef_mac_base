@@ -8,9 +8,6 @@ branches:
 
 install:
   - curl -L https://www.chef.io/chef/install.sh | sudo bash -s -- -P chefdk
-  - chef gem install bundler
-  - chef exec bundle install --without=development integration
-
 
 before_script:
   - cp .kitchen.travis.yml .kitchen.local.yml
