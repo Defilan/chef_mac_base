@@ -2,7 +2,7 @@
 # Cookbook:: macbase
 # Recipe:: default
 #
-# Copyright:: 2017, Christopher Maher, MIT.
+# Copyright:: 2018, Christopher Maher, MIT.
 
 # Create standard directories
 %W(
